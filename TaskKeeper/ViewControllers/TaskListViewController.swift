@@ -24,11 +24,6 @@ class TaskListViewController: UIViewController, UITableViewDelegate, UITableView
     
     //global data
     
-    /*
-     ------------------------------------------------------------
-     Task Struct now made as a class in "Task.swift"
-     ------------------------------------------------------------
-     */
     
     var sortType: String = "date"
     let red: UIColor = UIColor(red: 255/255, green: 20/255, blue: 20/255, alpha: 0.8)
@@ -66,7 +61,7 @@ class TaskListViewController: UIViewController, UITableViewDelegate, UITableView
             
         }
         else {
-            //TODO ALERT HERE!
+            ///TODO ALERT HERE!
         }
         
         
@@ -173,14 +168,6 @@ class TaskListViewController: UIViewController, UITableViewDelegate, UITableView
         
     }
     
-    
-    
-    
-    /*
-     
-     IO FUNCTIONS NOW MOVED TO "IO.SWIFT"
-     
-     */
 
     
     func sort() {
