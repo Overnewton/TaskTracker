@@ -24,16 +24,16 @@ class LoginViewController: UIViewController {
     
     @IBAction func btnLogin(_ sender: Any) {
         
+        //Initiate a new user object and save the username and ciphertext password to it
         let newUser: User = User.init()
-        newUser.passWord = txtPassword.text!
+        newUser.passWord = cipherText(message: txtPassword.text!, shift: -3)
         newUser.userName = txtUserName.text!
         
         
-        
-        //TODO - Write function to encrypt password through a cipher given in previous lessons
-        
+        //Search for user from text boxes in the created JSON file
         let searchedUserId = linearSearchLogin(array: userList, searchFor: newUser)
         
+        //If the user is found then the currentUser is saved with the attempted login credentials & goes to the next screen
         if searchedUserId != -1 {
             
             newUser.userId = searchedUserId
@@ -43,6 +43,7 @@ class LoginViewController: UIViewController {
             
             self.performSegue(withIdentifier: "loginSegue", sender: nil)
         }
+        //Else an alert is displayed to state that details are incorrect
         else {
             alert(message: "Username or password is incorrect")
         }
@@ -61,7 +62,12 @@ class LoginViewController: UIViewController {
         let newUser: User = User.init()
         newUser.passWord = txtPassword.text!
         newUser.userName = txtUserName.text!
-        newUser.passWord = cipherText(message: newUser.passWord, shift: 16)
+        print("password before cipher: " + newUser.passWord)
+        newUser.passWord = cipherText(message: newUser.passWord, shift: 3)
+        print("password after cipher: " + newUser.passWord)
+        
+        print(newUser.passWord)
+        print(newUser.userName)
         
         //TODO - Write function to encrypt password through a cipher given in previous lessons
         
