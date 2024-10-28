@@ -26,7 +26,7 @@ class LoginViewController: UIViewController {
         
         //Initiate a new user object and save the username and ciphertext password to it
         let newUser: User = User.init()
-        newUser.passWord = cipherText(message: txtPassword.text!, shift: -3)
+        newUser.passWord = cipherText(message: txtPassword.text!, shift: 3)
         newUser.userName = txtUserName.text!
         
         
